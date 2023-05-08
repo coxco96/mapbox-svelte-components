@@ -5,7 +5,18 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/Thumbs.db": true
+        "**/Thumbs.db": true,
+        "component-library/src/stories/page.css": true,
+        "component-library/src/stories/Page.svelte": true,
+        "component-library/src/stories/Header.svelte": true,
+        "component-library/src/stories/header.css": true,
+        "component-library/src/stories/button.css": true
     },
-    "hide-files.files": []
+    "hide-files.files": [
+        "component-library/src/stories/page.css",
+        "component-library/src/stories/Page.svelte",
+        "component-library/src/stories/Header.svelte",
+        "component-library/src/stories/header.css",
+        "component-library/src/stories/button.css"
+    ]
 }
