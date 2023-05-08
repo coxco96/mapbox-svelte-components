@@ -1,3 +1,5 @@
+
+
 export let options = {
     accessToken: null,
     origin: "https://api.mapbox.com",
@@ -19,7 +21,7 @@ export let options = {
     filter: undefined,
     localGeocoder: undefined,
     externalGeocoder: undefined,
-    reverseMode: "distance",
+    // reverseMode: undefined, // API doc says "distance" or "score" but neither works
     reverseGeocode: false,
     flipCoordinates: false,
     enableEventLogging: false,

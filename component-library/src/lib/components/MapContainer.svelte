@@ -2,19 +2,22 @@
     // UTILS
     import { mapKey } from "./../utils/mapbox/mapbox.js";
     import { setContext } from "svelte";
+    import Geocoder from "./Geocoder.svelte";
+    import {map} from '$lib/utils/stores/stores.js'
+    import {randomString} from './../utils/actions/random-string.js';
 
     // COMPONENTS
     import Map from "./Map.svelte";
 
     // EXPORT PROPS
     export let mapOpts = undefined;
-    let map;
-    // SET CONTEXT IN ORDER TO PASS STORES AS INSTANCES OF THIS SPECIFIC MAP
+
     setContext(mapKey, {
         getMap: () => map,
-        mapLoaded: () => mapLoaded,
-        getMapOpts: () => mapOpts, // not store
-    });
+        randomId: () => id
+    })
+
+    let id = `map-${randomString(7)}`;
 
 </script>
 
@@ -37,9 +40,14 @@
     </style>
 </svelte:head>
 
-<div class="map">
-    <Map {mapOpts}/>
+<div class="map" {id}>
+    <Map {mapOpts}> 
+        <Geocoder />
+    </Map>
+
 </div>
+
+<slot/>
 
 <style>
     .map {
