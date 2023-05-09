@@ -43,7 +43,7 @@
                 });
             }
             geocoder.on("clear", () => {
-                return (result = "geocoder cleared");
+                return (result = undefined);
             });
         });
     }
