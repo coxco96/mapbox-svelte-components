@@ -18,5 +18,5 @@ jobs:
         # Options required for Chromatic's GitHub Action
         with:
           #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/intro-to-storybook/ember/en/deploy/ to obtain it
-          projectToken: 645a1203c3c842e24c203770
+          projectToken: $ {{ 645a1203c3c842e24c203770 }}
           token: ${{ secrets.GITHUB_TOKEN }}
