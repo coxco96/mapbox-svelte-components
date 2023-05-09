@@ -2,7 +2,6 @@
 <script>
     import { getContext } from "svelte";
     import { sourceOptions } from "../utils/options/geojson-options.js";
-
     import { mapKey } from "../utils/mapbox/mapbox.js";
     import { randomString } from "../utils/actions/random-string.js";
 
