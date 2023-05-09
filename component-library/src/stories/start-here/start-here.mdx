@@ -122,8 +122,49 @@ todo!
 - mapbox
 - sveltekit
 
+### Why did I make this?
+master's project
+
 ### Who is it for?
 
 This library is for **developers**, primarily.
 
+### Next Steps: priority
+- optimize for accessibility:
+  - screen reader support:
+    - write scripts to analyze map options and data to dynamically read map summaries to screen reader users 
+    - create reactive declarations to re-run these scripts to announce changes in map 
+    - overall goal is to create non-visual interactive map and data experiences as a native feature to the MapContainer
+  - reduce motion preferences (rotating globe needs option to stop rotation)
+- send data to `<Geocoder/>` (currently only sends to `<SourceLayer/>`)
+- add support for all Mapbox-supported data types (currently only accepts geojson type)
+- test and optimize for:
+  - multiple data sources on one map
+  - multiple map instances on one page
+- add map height as a MapContainer prop (currently hard coded inside MapContainer component to 500px)
+- figure out if it optimizes speed to omit undefined values before passing options
+- publish package to npm
+- write more extensive documentation in Github README
 
+
+### Future steps
+
+- infer fill type if not specified in `layerOpts` (currently will throw error if not specified)
+- set default paint values by type (check if they already have defaults that render as visible)
+- build Markers component
+- add more Mapbox plugins
+- add scrollymap prop option (scrollytelling template with map)
+  - for accessibility, must include on/off motion option
+- ship with pre-written actions to use as mapScripts and/or geoprocesses (or potentially create a separate component to invoke prewritten actions)
+- add maplibre support (like mapbox but open-source)
+- add style component in which the style object (usually sent as a url) in mapOpt is customizable within something like `<MapContainer styleObj={}/>`
+- add something like layerScript to run scripts to pass to values of layerOpts (like to generate filters and expressions)
+
+#### A brain dump of actions to ship with
+    - mapScript: style builder (UI to change map styles on the fly)
+    - mapScript: set flyTo object (accept args to create this more easily than it is to do directly in geoprocess layerOpts)
+    - set some sort of catch error for sourceOpts or layerOpts are not valid (there are no pre-defined values for these, unlike the rest)
+    - geoprocess: use turf for "distance to" geoprocess
+    - geoprocess: use turf for "nearest point" geoprocess
+    - geoprocess: highlight (change opacity or color) of polygon (from data) that searched feature lands in
+    - geoprocess: draw line from searchedPoint to other specified point 
