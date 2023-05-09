@@ -10,7 +10,8 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=c88190329b0d"
   },
   "exports": {
     ".": {
@@ -39,6 +40,7 @@
     "@sveltejs/adapter-static": "^2.0.2",
     "@sveltejs/kit": "^1.5.0",
     "@sveltejs/package": "^2.0.0",
+    "chromatic": "^6.17.4",
     "publint": "^0.1.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -51,5 +53,7 @@
   },
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "type": "module"
+  "type": "module",
+  "readme": "ERROR: No README data found!",
+  "_id": "component-library@0.0.1"
 }
