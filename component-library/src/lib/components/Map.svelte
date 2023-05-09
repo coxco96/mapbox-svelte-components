@@ -7,6 +7,7 @@
 
     // EXPORTS
     export let mapOpts = undefined;
+    export let mapScript = undefined;
     
     // GET CONTEXTS
     let map = getContext(mapKey).getMap();
@@ -21,6 +22,7 @@
         let customOpts = {...options, ...mapOpts}
         customOpts.container = container;
         $map = new mapbox.Map(customOpts);
+        mapScript($map);
     });
 
     onDestroy(() => {

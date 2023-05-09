@@ -25,6 +25,7 @@
     export let sourceOpts = undefined;
     export let data = undefined;
     export let layerOpts = undefined;
+    export let mapScript = undefined;
 
     // SET STORES TO CONTEXT
     setContext(mapKey, {
@@ -56,7 +57,7 @@
 </svelte:head>
 <MapPage {title} {codeBlock} {content}>
 <div class="map">
-    <Map {mapOpts}>
+    <Map {mapOpts} {mapScript}>
         {#if addGeocoder}
         <Geocoder {geocoderOpts} {geoprocess}/>
         {/if}
