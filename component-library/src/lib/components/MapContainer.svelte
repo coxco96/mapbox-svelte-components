@@ -1,7 +1,7 @@
 <script>
 
     // storybook use only
-    import MapPage from './../../stories/MapPage.svelte'
+    import MapPage from '../../stories/storybook-template/TemplatePage.svelte'
     export let title;
     export let codeBlock;
     export let content;
