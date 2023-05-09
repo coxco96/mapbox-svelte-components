@@ -1,0 +1,134 @@
+import { Meta } from '@storybook/blocks';
+
+
+<Meta title="utils/options" />
+
+<style>
+  {`
+    .subheading {
+      --mediumdark: '#999999';
+      font-weight: 700;
+      font-size: 13px;
+      color: #999;
+      letter-spacing: 6px;
+      line-height: 24px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      margin-top: 40px;
+    }
+
+    .link-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      row-gap: 10px;
+    }
+
+    @media (min-width: 620px) {
+      .link-list {
+        row-gap: 20px;
+        column-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media all and (-ms-high-contrast:none) {
+    .link-list {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr;
+      }
+    }
+
+    .link-item {
+      display: block;
+      padding: 20px;
+      border: 1px solid #00000010;
+      border-radius: 5px;
+      transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+      color: #333333;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .link-item:hover {
+      border-color: #1EA7FD50;
+      transform: translate3d(0, -3px, 0);
+      box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+    }
+
+    .link-item:active {
+      border-color: #1EA7FD;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .link-item strong {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .link-item img {
+      height: 40px;
+      width: 40px;
+      margin-right: 15px;
+      flex: none;
+    }
+
+    .link-item span,
+    .link-item p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .tip {
+      display: inline-block;
+      border-radius: 1em;
+      font-size: 11px;
+      line-height: 12px;
+      font-weight: 700;
+      background: #E7FDD8;
+      color: #66BF3C;
+      padding: 4px 12px;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+
+    .tip-wrapper {
+      font-size: 13px;
+      line-height: 20px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .tip-wrapper code {
+      font-size: 12px;
+      display: inline-block;
+    }
+  `}
+</style>
+# options
+## [src/lib/utils/options](https://github.com/coxco96/mapbox-svelte-components/tree/main/component-library/src/lib/utils/options)
+### default options
+This folder holds the default options exports for the default options for options not supplied by the user in `<MapContainer/>`:
+- [mapOpts](https://github.com/coxco96/mapbox-svelte-components/blob/main/component-library/src/lib/utils/options/map-options.js): 
+    - `import { options } from '$lib/utils/options/map-options.js'`
+- [geocoderOpts](https://github.com/coxco96/mapbox-svelte-components/blob/main/component-library/src/lib/utils/options/geocoder-options.js): 
+    - `import { options } from $lib/utilsoptions/geocoder-options.js` 
+       
+- [data](https://github.com/coxco96/mapbox-svelte-components/blob/main/component-library/src/lib/utils/options/geojson-options.js):  
+    - `import { sourceOptions } from '$lib/utils/geojson-options.js'`
+
+### style options
+This folder also holds [object of map styles](https://github.com/coxco96/mapbox-svelte-components/blob/main/component-library/src/lib/utils/options/map-style-options.js) for easier reference to set style in `mapOpts`:
+- `import { styles } from '$lib/utils/options/map-style-options.js'`
+
+It comes with the Mapbox-owned styles. The user may edit this file to include references to their own style URLs.
+With the file imported, Mapbox's 'light' style can be specified like this:
+            - `<MapContainer mapOpts={{style: styles.light}}/>`
+            
+Whereas without the file, the full URL must be typed out, like this:
+            - `<MapContainer mapOpts={{style: 'mapbox://styles/mapbox/light-v10'}}/>`
+
+
