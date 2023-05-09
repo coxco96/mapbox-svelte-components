@@ -9,24 +9,27 @@
     // UTILS
     import { mapKey } from "./../utils/mapbox/mapbox.js";
     import { setContext } from "svelte";
-    import Geocoder from "./Geocoder.svelte";
     import { map, mapLoaded } from "$lib/utils/stores/stores.js";
 
 
     // COMPONENTS
     import Map from "./Map.svelte";
+    import Geocoder from "./Geocoder.svelte";
+    import SourceLayer from './SourceLayer.svelte';
 
     // EXPORT PROPS
     export let mapOpts = undefined;
     export let geocoderOpts = undefined;
     export let addGeocoder = false;
     export let geoprocess = undefined;
+    export let sourceOpts = undefined;
+    export let data = undefined;
+    export let layerOpts = undefined;
 
     // SET STORES TO CONTEXT
     setContext(mapKey, {
         getMap: () => map,
         getMapLoaded: () => mapLoaded,
-        // getGeocoderOpts: () => geocoderOpts
     });
 </script>
 
@@ -56,6 +59,9 @@
     <Map {mapOpts}>
         {#if addGeocoder}
         <Geocoder {geocoderOpts} {geoprocess}/>
+        {/if}
+        {#if data}
+        <SourceLayer {data} {sourceOpts} {layerOpts}/>
         {/if}
     </Map>
 </div>

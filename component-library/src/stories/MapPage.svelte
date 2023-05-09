@@ -47,12 +47,6 @@
       </div>
     </div>
   </div>
-
-
-
-<!-- <div>{content}</div>
-<div><code>{codeBlock}</code></div>
-<slot/> -->
 </div> 
 
 

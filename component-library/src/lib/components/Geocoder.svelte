@@ -16,7 +16,7 @@
     // validate that geoprocess is a valid function (if present at all)
     const scriptPresent = typeof geoprocess == "function";
 
-    // GET CONTEXTS
+    // GET CONTEXT
     let thisMap = getContext(mapKey).getMap();
 
     // MERGE DEFAULT OPTS WITH PROP (geocoderOpts)
