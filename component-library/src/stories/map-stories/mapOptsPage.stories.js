@@ -1,19 +1,17 @@
-import DefaultPage from './DefaultPage.svelte';
-
-// More on how to set up stories at: https://storybook.js.org/docs/svelte/writing-stories/introduction
+import MapOptsPage from './storybook-components/MapOptsPage.svelte'
 export default {
-  title: 'MapContainer/MapOpts',
-  component: DefaultPage
+  title: '<Map>/mapOpts',
+  component: MapOptsPage
 };
 
 
-export const DefaultMapContainer = {
-  args: {
-    title: 'Default Map Container',
-    codeBlock: `<MapContainer/>`,
-    content: 'come back to this'
-  }
-}
+// export const DefaultMapContainer = {
+//   args: {
+//     title: 'Default Map Container',
+//     codeBlock: `<MapContainer/>`,
+//     content: 'come back to this'
+//   }
+// }
 
 export const ChangeMapStyle = {
   args: {

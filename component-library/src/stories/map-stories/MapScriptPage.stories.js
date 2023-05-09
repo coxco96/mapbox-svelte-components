@@ -1,4 +1,4 @@
-import CoolStuffPage from './CoolStuffPage.svelte';
+import MapScriptPage from './storybook-components/MapScriptPage.svelte';
 import {
     spinGlobe
 } from '$lib/utils/actions/spin-globe.js';
@@ -7,8 +7,8 @@ import {
 } from '$lib/utils/options/map-style-options.js';
 // More on how to set up stories at: https://storybook.js.org/docs/svelte/writing-stories/introduction
 export default {
-    title: 'MapScript/Custom',
-    component: CoolStuffPage
+    title: '<Map>/mapScript',
+    component: MapScriptPage
 };
 
 

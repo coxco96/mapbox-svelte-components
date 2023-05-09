@@ -1,9 +1,9 @@
-import GeoprocessPage from './GeoprocessPage.svelte';
-import {geoprocess} from '$lib/utils/actions/geoprocess.js'
+import GeoprocessPage from './storybook-components/GeoprocessPage.svelte'; 
+import {geoprocess} from '$lib/utils/actions/geoprocess.js';
 
 // More on how to set up stories at: https://storybook.js.org/docs/svelte/writing-stories/introduction
 export default {
-  title: 'Geocoder/geoprocess',
+  title: '<Geocoder>/geoprocess',
   component: GeoprocessPage
 };
 

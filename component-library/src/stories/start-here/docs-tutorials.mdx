@@ -1,14 +1,10 @@
+<Meta title="Start Here/docs & tutorials" />
 import { Meta } from '@storybook/blocks';
-import Code from './assets/code-brackets.svg';
-import Colors from './assets/colors.svg';
-import Comments from './assets/comments.svg';
-import Direction from './assets/direction.svg';
-import Flow from './assets/flow.svg';
-import Plugin from './assets/plugin.svg';
-import Repo from './assets/repo.svg';
-import StackAlt from './assets/stackalt.svg';
+import GithubLogo from './../assets/github-logo.svg';
+import SvelteLogo from './../assets/svelte-logo.svg';
+import MapboxLogo from './../assets/mapbox-logo.svg';
+import FurtherReading from './../assets/further-reading.svg';
 
-<Meta title="Start Here/Introduction" />
 
 <style>
   {`
@@ -116,30 +112,17 @@ import StackAlt from './assets/stackalt.svg';
   `}
 </style>
 
-# Mapbox GL JS + Sveltekit 
+# docs & tutorials
+---
+**Quick note: this library is still in progress and not quite production ready. Stay tuned!**
 
-## A component library to simplify digital mapping
+**The Github repo below is not complete with full documentation, and this library has not yet been published to npm.**
 
-This is a demonstration of a component library in progress.
-
-### What is this?
-
-We recommend building UIs with a [**component-driven**](https://componentdriven.org) process starting with atomic components and ending with pages.
-
-- mapbox
-- sveltekit
-
-### Who is it for?
-
-This library is for **developers**, primarily.
-
-
-
-<div className="subheading">Documentation</div>
+<div className="subheading">Everything you need to get started</div>
 
 <div className="link-list">
 <a className="link-item" href="https://github.com/coxco96/mapbox-svelte-components" target="_blank">
-    <img src={Code} alt="code icon" />
+    <img src={GithubLogo} alt="Github Logo cat icon" />
     <span>
       <strong>Check out the Github repo</strong>
       For detailed documentation on how to use this library, check out its Github repo. If you're looking for the component code, here's a <a href="https://github.com/coxco96/mapbox-svelte-components/tree/main/component-library/src/lib/components" target="_blank">direct link to the components folder</a>.
@@ -147,7 +130,7 @@ This library is for **developers**, primarily.
   </a>
 
   <a className="link-item" href="https://svelte.dev/tutorial/basics" target="_blank">
-    <img src={Code} alt="code icon" />
+    <img src={SvelteLogo} alt="Svelte logo" />
     <span>
       <strong>Svelte Tutorial</strong>
       You don't need to be a Svelte master to use this library. You will use one prewritten <a href="https://svelte.dev/tutorial/nested-components" target="_blank">nested component</a>, and you'll need to understand how to <a href="https://svelte.dev/tutorial/declaring-props" target="_blank">declare its props</a>.
@@ -155,7 +138,7 @@ This library is for **developers**, primarily.
   </a>
 
     <a className="link-item" href="https://docs.mapbox.com/mapbox-gl-js/api/map/" target="_blank">
-    <img src={Direction} alt="direction" />
+    <img src={MapboxLogo} alt="Map Pin" />
     <span>
       <strong>Mapbox GL: Map Options</strong>
       You'll set these options through the `mapOpts` prop.
@@ -163,7 +146,7 @@ This library is for **developers**, primarily.
   </a>
 
       <a className="link-item" href="https://github.com/mapbox/mapbox-gl-geocoder/blob/main/API.md#mapboxgeocoder" target="_blank">
-    <img src={Direction} alt="direction" />
+    <img src={MapboxLogo} alt="Map Pin" />
     <span>
       <strong>Mapbox GL: Geocoder Options</strong>
       You'll set these options through the `geocoderOpts` prop.
@@ -171,7 +154,7 @@ This library is for **developers**, primarily.
   </a>
 
         <a className="link-item" href="https://docs.mapbox.com/mapbox-gl-js/style-spec/sources/#geojson" target="_blank">
-    <img src={Direction} alt="direction" />
+    <img src={MapboxLogo} alt="Map Pin" />
     <span>
       <strong>Mapbox GL: Source Options </strong>
       You'll bring data into the map by setting the `sourceOpts` prop. <em>Note: currently, only 'geojson' source type is supported.</em>
@@ -179,7 +162,7 @@ This library is for **developers**, primarily.
   </a>
 
         <a className="link-item" href="https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#layer-properties" target="_blank">
-    <img src={Direction} alt="direction" />
+    <img src={MapboxLogo} alt="Map Pin" />
     <span>
       <strong>Mapbox GL: Layer Options</strong>
       Layer options tell the map how to display your data. You'll set these through the `layerOpts` prop.
@@ -192,7 +175,7 @@ This library is for **developers**, primarily.
 <div className="link-list">
 
     <a className="link-item" href="https://svelte.dev/docs" target="_blank">
-    <img src={Code} alt="code icon" />
+    <img src={FurtherReading} alt="open book" />
     <span>
       <strong>Svelte Documentation</strong>
       I recommend starting with the <a href="https://svelte.dev/tutorial/basics" target="_blank">Svelte tutorial</a> if you're new to Svelte. Otherwise, here is the full documentation for reference.
@@ -200,7 +183,7 @@ This library is for **developers**, primarily.
   </a>
 
     <a className="link-item" href="https://kit.svelte.dev/docs/introduction" target="_blank">
-    <img src={Code} alt="code icon" />
+    <img src={FurtherReading} alt="open book" />
     <span>
       <strong>Sveltekit Documentation</strong>
       This library was <a href="https://kit.svelte.dev/docs/packaging" target="_blank">packaged with Sveltekit</a>, which is a Svelte framework that acts as a router and build optimizer.

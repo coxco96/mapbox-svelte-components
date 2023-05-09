@@ -1,12 +1,12 @@
-import AddDataPage from './AddDataPage.svelte';
+import SourceLayerPage from './storybook-components/SourceLayerPage.svelte';
 import acpa from '$lib/test/acpa-cleft-care.json'
 import { styles } from '$lib/utils/options/map-style-options.js';
 console.log(acpa);
 
 // More on how to set up stories at: https://storybook.js.org/docs/svelte/writing-stories/introduction
 export default {
-  title: 'AddData/SourceAndLayer',
-  component: AddDataPage
+  title: '<SourceLayer>/Add Data',
+  component: SourceLayerPage
 };
 
 

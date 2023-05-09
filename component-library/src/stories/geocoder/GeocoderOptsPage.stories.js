@@ -1,10 +1,10 @@
-import GeocoderOptions from './GeocoderOptions.svelte';
+import GeocoderOpts from './storybook-components/GeocoderOptsPage.svelte' 
 import {styles} from '$lib/utils/options/map-style-options.js'
 
 // More on how to set up stories at: https://storybook.js.org/docs/svelte/writing-stories/introduction
 export default {
-  title: 'Geocoder/geocoderOpts',
-  component: GeocoderOptions
+  title: '<Geocoder>/geocoderOpts',
+  component: GeocoderOpts
 };
 
 export const TurnOffFlyTo = {
