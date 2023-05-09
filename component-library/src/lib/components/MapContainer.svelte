@@ -10,6 +10,8 @@
 
     // EXPORT PROPS
     export let mapOpts = undefined;
+    export let geocoderOpts = undefined;
+    export let addGeocoder = false;
 
     // SET STORES TO CONTEXT
     setContext(mapKey, {
@@ -48,6 +50,8 @@
 
 <div class="map">
     <Map {mapOpts}>
+        {#if addGeocoder}
         <Geocoder />
+        {/if}
     </Map>
 </div>
