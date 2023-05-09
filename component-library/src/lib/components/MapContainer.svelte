@@ -4,6 +4,10 @@
     import { setContext } from "svelte";
     import Geocoder from "./Geocoder.svelte";
     import { map, mapLoaded } from "$lib/utils/stores/stores.js";
+    import MapPage from './../../stories/MapPage.svelte' // storybook use only
+    export let title;
+    export let codeBlock;
+    export let content
 
     // COMPONENTS
     import Map from "./Map.svelte";
@@ -47,7 +51,7 @@
         }
     </style>
 </svelte:head>
-
+<MapPage {title} {codeBlock} {content}>
 <div class="map">
     <Map {mapOpts}>
         {#if addGeocoder}
@@ -55,3 +59,4 @@
         {/if}
     </Map>
 </div>
+</MapPage>
