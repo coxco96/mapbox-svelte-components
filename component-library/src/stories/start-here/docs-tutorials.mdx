@@ -88,11 +88,11 @@ import FurtherReading from './../assets/further-reading.svg';
     .tip {
       display: inline-block;
       border-radius: 1em;
-      font-size: 11px;
-      line-height: 12px;
+      font-size: 14px;
+      line-height: 15px;
       font-weight: 700;
       background: #E7FDD8;
-      color: #66BF3C;
+      color: #458228;
       padding: 4px 12px;
       margin-right: 10px;
       vertical-align: top;
@@ -101,8 +101,8 @@ import FurtherReading from './../assets/further-reading.svg';
     .tip-wrapper {
       font-size: 13px;
       line-height: 20px;
-      margin-top: 40px;
-      margin-bottom: 40px;
+      margin-top: 30px;
+      margin-bottom: 30px;
     }
 
     .tip-wrapper code {
@@ -114,9 +114,17 @@ import FurtherReading from './../assets/further-reading.svg';
 
 # docs & tutorials
 ---
+
 **Quick note: this library is still in progress and not quite production ready. Stay tuned!**
 
 **The Github repo below is not complete with full documentation, and this library has not yet been published to npm.**
+
+<span></span>
+---
+<div className="tip-wrapper">
+  <span className="tip">tip</span>
+  **markdown in html?** *works, perf*
+</div>
 
 <div className="subheading">Everything you need to get started</div>
 
@@ -125,7 +133,7 @@ import FurtherReading from './../assets/further-reading.svg';
     <img src={GithubLogo} alt="Github Logo cat icon" />
     <span>
       <strong>Check out the Github repo</strong>
-      For detailed documentation on how to use this library, check out its Github repo. If you're looking for the component code, here's a <a href="https://github.com/coxco96/mapbox-svelte-components/tree/main/component-library/src/lib/components" target="_blank">direct link to the components folder</a>.
+      For detailed documentation on how to use this library, check out its Github repo (coming soon). If you're looking for the component code, here's a <a href="https://github.com/coxco96/mapbox-svelte-components/tree/main/component-library/src/lib/components" target="_blank">direct link to the components folder</a>.
     </span>
   </a>
 
@@ -141,7 +149,7 @@ import FurtherReading from './../assets/further-reading.svg';
     <img src={MapboxLogo} alt="Map Pin" />
     <span>
       <strong>Mapbox GL: Map Options</strong>
-      You'll set these options through the `mapOpts` prop.
+      You'll set these options through the {' '}<code>mapOpts</code> prop.
     </span>
   </a>
 
@@ -149,7 +157,7 @@ import FurtherReading from './../assets/further-reading.svg';
     <img src={MapboxLogo} alt="Map Pin" />
     <span>
       <strong>Mapbox GL: Geocoder Options</strong>
-      You'll set these options through the `geocoderOpts` prop.
+      You'll set these options through the {' '}<code>geocodeOpts</code> prop.
     </span>
   </a>
 
@@ -157,7 +165,7 @@ import FurtherReading from './../assets/further-reading.svg';
     <img src={MapboxLogo} alt="Map Pin" />
     <span>
       <strong>Mapbox GL: Source Options </strong>
-      You'll bring data into the map by setting the `sourceOpts` prop. <em>Note: currently, only 'geojson' source type is supported.</em>
+      You'll bring data into the map by setting the {' '}<code>sourceOpts</code> prop. <em>Note: currently, only 'geojson' source type is supported.</em>
     </span>
   </a>
 
@@ -165,12 +173,12 @@ import FurtherReading from './../assets/further-reading.svg';
     <img src={MapboxLogo} alt="Map Pin" />
     <span>
       <strong>Mapbox GL: Layer Options</strong>
-      Layer options tell the map how to display your data. You'll set these through the `layerOpts` prop.
+      Layer options tell the map how to display your data. You'll set these through the {' '}<code>layerOpts</code> prop.
     </span>
   </a>
 </div>
 
-<div className="subheading">May also be useful</div>
+<div className="subheading">Dive deeper</div>
 
 <div className="link-list">
 
@@ -189,12 +197,6 @@ import FurtherReading from './../assets/further-reading.svg';
       This library was <a href="https://kit.svelte.dev/docs/packaging" target="_blank">packaged with Sveltekit</a>, which is a Svelte framework that acts as a router and build optimizer.
     </span>
   </a>
-
-  
-
 </div>
 
-<div className="tip-wrapper">
-  <span className="tip">Tip</span>Edit the Markdown in{' '}
-  <code>stories/Introduction.stories.mdx</code>
-</div>
+
