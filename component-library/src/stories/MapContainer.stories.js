@@ -7,23 +7,6 @@ export default {
 };
 
 
-export const DefaultMapContainer = {
-  args: {
-    title: 'Default Map Container',
-    codeBlock: `<MapContainer/>`,
-    content: 'come back to this'
-  }
-}
-
-export const AddGeocoder = {
-  args: {
-    addGeocoder: true,
-    title: 'Add a Geocoder',
-    codeBlock: `<MapContainer addGeocoder={true}>`,
-    content: `content here`
-  }
-}
-
 export const ChangeMapStyle = {
     args: {
       mapOpts: {

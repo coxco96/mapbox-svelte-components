@@ -1,14 +1,17 @@
 <script>
 
+    // storybook use only
+    import MapPage from './../../stories/MapPage.svelte'
+    export let title;
+    export let codeBlock;
+    export let content;
+
     // UTILS
     import { mapKey } from "./../utils/mapbox/mapbox.js";
     import { setContext } from "svelte";
     import Geocoder from "./Geocoder.svelte";
     import { map, mapLoaded } from "$lib/utils/stores/stores.js";
-    import MapPage from './../../stories/MapPage.svelte' // storybook use only
-    export let title;
-    export let codeBlock;
-    export let content;
+
 
     // COMPONENTS
     import Map from "./Map.svelte";
@@ -22,6 +25,7 @@
     setContext(mapKey, {
         getMap: () => map,
         getMapLoaded: () => mapLoaded,
+        // getGeocoderOpts: () => geocoderOpts
     });
 </script>
 
@@ -50,7 +54,7 @@
 <div class="map">
     <Map {mapOpts}>
         {#if addGeocoder}
-        <Geocoder />
+        <Geocoder {geocoderOpts}/>
         {/if}
     </Map>
 </div>
