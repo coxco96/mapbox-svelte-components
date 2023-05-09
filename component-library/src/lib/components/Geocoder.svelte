@@ -9,10 +9,15 @@
 
     // EXPORTS
     export let geocoderOpts = undefined; // see: https://github.com/mapbox/mapbox-gl-geocoder/blob/main/API.md;
+    export let geoprocess = undefined;
+
+    let result;
+
+    // validate that geoprocess is a valid function (if present at all)
+    const scriptPresent = typeof geoprocess == "function";
 
     // GET CONTEXTS
     let thisMap = getContext(mapKey).getMap();
-
 
     // MERGE DEFAULT OPTS WITH PROP (geocoderOpts)
     let customOpts = {
@@ -22,14 +27,30 @@
         mapboxgl: mapbox,
     };
 
-
     // WAIT UNTIL MAP IS DEFINED
     $: if ($thisMap) {
-        $thisMap.on('load', () => {
-        let geocoder = new MapboxGeocoder(customOpts);
-        geocoder.addTo($thisMap);
-        })
-    } 
+        $thisMap.on("load", () => {
+            let geocoder = new MapboxGeocoder(customOpts);
+            geocoder.addTo($thisMap);
 
- 
+            // if geoprocess is present, fire on geocode result
+            if (scriptPresent) {
+                geocoder.on("result", function (e) {
+                    let searchCoords = e.result.geometry.coordinates;
+                    result = geoprocess(searchCoords);
+                    console.log(result);
+                    return result;
+                });
+            }
+            geocoder.on("clear", () => {
+                return (result = "geocoder cleared");
+            });
+        });
+    }
 </script>
+
+<p>
+    {#if result}The coordinates of the address your searched are: <strong
+            >{result}</strong
+        >.{/if}
+</p>

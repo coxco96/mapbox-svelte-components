@@ -20,6 +20,7 @@
     export let mapOpts = undefined;
     export let geocoderOpts = undefined;
     export let addGeocoder = false;
+    export let geoprocess = undefined;
 
     // SET STORES TO CONTEXT
     setContext(mapKey, {
@@ -54,7 +55,7 @@
 <div class="map">
     <Map {mapOpts}>
         {#if addGeocoder}
-        <Geocoder {geocoderOpts}/>
+        <Geocoder {geocoderOpts} {geoprocess}/>
         {/if}
     </Map>
 </div>

@@ -47,7 +47,7 @@ export const TurnOffFlyTo = {
             projection: 'globe',
             zoom: 1
         },
-        title: 'flyTo: false',
+        title: 'combine various options',
         codeBlock: `todo`,
         content: 'todo // combines mapOpts and geocoderOpts'
     }
