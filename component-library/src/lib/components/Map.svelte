@@ -22,7 +22,7 @@
         let customOpts = {...options, ...mapOpts}
         customOpts.container = container;
         $map = new mapbox.Map(customOpts);
-        mapScript($map);
+        if(mapScript){mapScript($map)}
     });
 
     onDestroy(() => {
