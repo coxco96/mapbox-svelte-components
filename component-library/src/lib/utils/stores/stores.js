@@ -3,6 +3,8 @@ import {
     derived
 } from 'svelte/store';
 
+import {randomString} from './../actions/random-string.js'
+
 // map store for mapbox map object
 export const map = writable();
 
@@ -13,4 +15,7 @@ export const dataStore = writable();
 export const mapLoaded = derived(map, $map => $map ? true : false);
 
 export const mapOptsStore = writable();
+
+// generate random ID
+export const id = writable(`map-${randomString(7)}`);
 

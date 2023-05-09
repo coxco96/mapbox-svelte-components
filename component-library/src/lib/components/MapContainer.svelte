@@ -3,8 +3,7 @@
     import { mapKey } from "./../utils/mapbox/mapbox.js";
     import { setContext } from "svelte";
     import Geocoder from "./Geocoder.svelte";
-    import {map} from '$lib/utils/stores/stores.js'
-    import {randomString} from './../utils/actions/random-string.js';
+    import { map, mapLoaded } from "$lib/utils/stores/stores.js";
 
     // COMPONENTS
     import Map from "./Map.svelte";
@@ -12,13 +11,11 @@
     // EXPORT PROPS
     export let mapOpts = undefined;
 
+    // SET STORES TO CONTEXT
     setContext(mapKey, {
         getMap: () => map,
-        randomId: () => id
-    })
-
-    let id = `map-${randomString(7)}`;
-
+        getMapLoaded: () => mapLoaded,
+    });
 </script>
 
 <svelte:head>
@@ -37,21 +34,20 @@
         .mapboxgl-map {
             height: 600px;
         }
+
+        .map {
+            height: 100%;
+            width: 100%;
+        }
+
+        .mapboxgl-ctrl-geocoder {
+            min-width: 100%;
+        }
     </style>
 </svelte:head>
 
-<div class="map" {id}>
-    <Map {mapOpts}> 
+<div class="map">
+    <Map {mapOpts}>
         <Geocoder />
     </Map>
-
 </div>
-
-<slot/>
-
-<style>
-    .map {
-        height: 100%;
-        width: 100%;
-    }
-</style>
