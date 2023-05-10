@@ -1,0 +1,188 @@
+import { Meta } from '@storybook/blocks';
+
+
+<Meta title="Start Here/what is this?" />
+
+<style>
+  {`
+    .subheading {
+      --mediumdark: '#999999';
+      font-weight: 700;
+      font-size: 13px;
+      color: #999;
+      letter-spacing: 6px;
+      line-height: 24px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      margin-top: 40px;
+    }
+
+    .link-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      row-gap: 10px;
+    }
+
+    @media (min-width: 620px) {
+      .link-list {
+        row-gap: 20px;
+        column-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media all and (-ms-high-contrast:none) {
+    .link-list {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr;
+        -ms-grid-rows: 1fr 1fr;
+      }
+    }
+
+    .link-item {
+      display: block;
+      padding: 20px;
+      border: 1px solid #00000010;
+      border-radius: 5px;
+      transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+      color: #333333;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .link-item:hover {
+      border-color: #1EA7FD50;
+      transform: translate3d(0, -3px, 0);
+      box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+    }
+
+    .link-item:active {
+      border-color: #1EA7FD;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .link-item strong {
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .link-item img {
+      height: 40px;
+      width: 40px;
+      margin-right: 15px;
+      flex: none;
+    }
+
+    .link-item span,
+    .link-item p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .tip {
+      display: inline-block;
+      border-radius: 1em;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 700;
+      background: #e6bcbc;
+      color: #330404;
+      padding: 4px 12px;
+      margin-right: 10px;
+      vertical-align: top;
+    }
+
+    .tip-wrapper {
+      font-size: 16px;
+      line-height: 20px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .tip-wrapper code {
+      font-size: 12px;
+      display: inline-block;
+    }
+  `}
+</style>
+
+# Mapbox GL JS + Sveltekit 
+
+## a reactive component library to build custom maps with less code
+
+
+*Heads up! This project is still in production. It isn't published or available for use just yet.*
+
+### a quick personal note
+This Storybook was born as a demonstration for my master's defense for the M.S. in Digital Mapping from [New Maps Plus](https://newmapsplus.as.uky.edu/programs) at the [University of Kentucky](https://www.uky.edu/). You can view more of my projects at [my portfolio website](https://coxco96.github.io/), or have a look around [my Github profile](https://github.com/coxco96).
+
+I decided last winter that I wanted to learn how to use a framework called Svelte. In the spirit of learning by doing, I decided I would code my final project using Sveltekit as the framework for the site itself--that is, for layout templates and page navigation/routing. 
+
+Svelte felt like an impossible puzzle at first, but as I began to think in its language, my project grew into something much different than what I had initially intended. Rather than a narrative story in itself, I've created and and am optimizing building blocks for my future ideas.
+
+Now that I've spent time with it, Svelte feels more like a game of sudoku--a bunch of little pieces influencing each other from all directions, offering the cozy sort of brain tease you want to have with coffee. This library, functional though nascent, is the foundation of a project I plan to continue developing in the coming months. 
+
+This Storybook does not present full documentation. Eventually, that will live in the [Github repo](https://github.com/coxco96/mapbox-svelte-components). For now, the Storybook is a basic explanation of what it is and what it does, leaving out a lot of the technical intricacies happening under the hood.
+
+It was a bit out of left field that I ever started the New Maps Plus program, and an even wider stretch to be finishing with a degree, because when I began the certificate program in April 2021, I had a bachelor's in creative writing, had never written a line of code, and knew next to nothing about maps. I'm still not sure what enticed me about the program enough to decide to pay the tuition out-of-pocket with a dwindling temp job (at the time), but I am better because I did, and I continue to become a better version of myself as I learn to see see in patterns, think in logic, recognize harm veiled by data, and advocate for myself and my world through maps. Thanks, NMP.   
+
+\- Court
+
+
+
+### so what is this?
+
+todo!
+
+- mapbox
+- sveltekit
+
+### Why did I make this?
+master's project
+
+### Who is it for?
+
+This library is for **developers**, primarily.
+
+### Next Steps: priority
+- optimize for accessibility:
+  - screen reader support:
+    - write scripts to analyze map options and data to dynamically read map summaries to screen reader users 
+    - create reactive declarations to re-run these scripts to announce changes in map 
+    - overall goal is to create non-visual interactive map and data experiences as a native feature to the MapContainer
+  - reduce motion preferences (rotating globe needs option to stop rotation)
+- send data to `<Geocoder/>` (currently only sends to `<SourceLayer/>`)
+- add support for all Mapbox-supported data types (currently only accepts geojson type)
+- test and optimize for:
+  - multiple data sources on one map
+  - multiple map instances on one page
+- add map height as a MapContainer prop (currently hard coded inside MapContainer component to 500px)
+- figure out if it optimizes speed to omit undefined values before passing options
+- publish package to npm
+- write more extensive documentation in Github README
+
+
+### Future steps
+
+- infer fill type if not specified in `layerOpts` (currently will throw error if not specified)
+- set default paint values by type (check if they already have defaults that render as visible)
+- build Markers component
+- add more Mapbox plugins
+- add scrollymap prop option (scrollytelling template with map)
+  - for accessibility, must include on/off motion option
+- ship with pre-written actions to use as mapScripts and/or geoprocesses (or potentially create a separate component to invoke prewritten actions)
+- add maplibre support (like mapbox but open-source)
+- add style component in which the style object (usually sent as a url) in mapOpt is customizable within something like `<MapContainer styleObj={}/>`
+- add something like layerScript to run scripts to pass to values of layerOpts (like to generate filters and expressions)
+
+#### A brain dump of actions to ship with
+    - mapScript: style builder (UI to change map styles on the fly)
+    - mapScript: set flyTo object (accept args to create this more easily than it is to do directly in geoprocess layerOpts)
+    - set some sort of catch error for sourceOpts or layerOpts are not valid (there are no pre-defined values for these, unlike the rest)
+    - geoprocess: use turf for "distance to" geoprocess
+    - geoprocess: use turf for "nearest point" geoprocess
+    - geoprocess: highlight (change opacity or color) of polygon (from data) that searched feature lands in
+    - geoprocess: draw line from searchedPoint to other specified point 

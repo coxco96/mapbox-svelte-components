@@ -1,3 +1,0 @@
-import{j as n}from"./jsx-runtime-94f6e698.js";import"./MapContainer.stories-9680c8ae.js";import{u as s}from"./index-1d576ef5.js";import"./index-8db94870.js";import"./_commonjsHelpers-042e6b4d.js";import"./MapContainer-029b0aaf.js";import"./index-3db65c44.js";function x(t={}){const{wrapper:o}=Object.assign({},s(),t.components);return o?n.jsx(o,Object.assign({},t,{children:n.jsx(e,{})})):e();function e(){const r=Object.assign({h1:"h1",p:"p"},s(),t.components);return n.jsxs(n.Fragment,{children:[n.jsx(r.h1,{id:"a-mapcontainer",children:"A MapContainer"}),`
-`,n.jsx(r.p,{children:"docs go here!"})]})}}export{x as default};
-//# sourceMappingURL=MapContainer-7721a71f.js.map
