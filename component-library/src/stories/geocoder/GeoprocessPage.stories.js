@@ -11,9 +11,8 @@ export const returnCoords = {
     args: {
         addGeocoder: true,
         geoprocess: geoprocess,
-        title: 'geoprocesser',
+        title: 'Run a geoprocessing function (set in utils/actions)',
         codeBlock: `<MapContainer addGeocoder={true} {geoprocess}}`,
-        content: `In utils/actions, there is a geoprocessing.js file. You can create an action in there to fire on the geocoder result, such as calculating the distance to a certain point.`
     }
   }
 
