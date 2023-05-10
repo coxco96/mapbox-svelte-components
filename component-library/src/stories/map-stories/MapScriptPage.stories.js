@@ -5,7 +5,6 @@ import {
 import {
     styles
 } from '$lib/utils/options/map-style-options.js';
-// More on how to set up stories at: https://storybook.js.org/docs/svelte/writing-stories/introduction
 export default {
     title: '<Map>/mapScript',
     component: MapScriptPage
@@ -15,11 +14,10 @@ export default {
 export const SpinGlobe = {
     args: {
         mapScript: spinGlobe,
-        title: 'Add a custom script as an action',
-        codeBlock: `<MapContainerTODO>`,
-        content: `content here`,
+        title: 'Spin the globe by adding a custom script as an action',
+        codeBlock: `<MapContainer mapScript={spinGlobe} mapOpts={style: styles.courtPixie, projection: 'globe}>`,
         mapOpts: {
-            'style': styles.courtBluePink,
+            'style': styles.courtPixie,
             'projection': 'globe'
         }
     }
