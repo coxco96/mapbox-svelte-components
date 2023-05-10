@@ -7,12 +7,11 @@ export default {
 };
 
 
-export const True = {
+export const AddAGeocoder = {
     args: {
       addGeocoder: true,
       title: 'Add a Geocoder',
       codeBlock: `<MapContainer addGeocoder={true}>`,
-      content: `content here`
     }
   }
 

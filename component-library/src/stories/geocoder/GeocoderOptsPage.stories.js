@@ -13,27 +13,28 @@ export const TurnOffFlyTo = {
         geocoderOpts: {
             flyTo: false
         },
-        title: 'enableGeolocation: true',
-        codeBlock: `<MapContainer addGeocoder={true} geocodeOpts={{clearOnBlur: true}}`
+        title: 'Turn off flyTo (search will not cause animation)',
+        codeBlock: `<MapContainer addGeocoder={true} geocodeOpts={{flyTo: false}}`
     }
   }
 
-  export const enableGeolocation = {
+  export const EnableGeolocation = {
     args: {
         addGeocoder: true,
         geocoderOpts: {
             enableGeolocation: true
         },
-        title: 'enableGeolocation: true',
+        title: 'Enable Geolocation (get user location)',
         codeBlock: `<MapContainer addGeocoder={true} geocodeOpts={{enableGeolocation: true}}`
     }
   }
 
-  export const MultipleOpts = {
+  export const CombineVariousOpts = {
     args: {
         addGeocoder: true,
         geocoderOpts: {
             enableGeolocation: true,
+            placeholder: 'changed the placeholder text',
             flyTo: {
                 curve: 1.75,
                 pitch: 70,
@@ -47,9 +48,8 @@ export const TurnOffFlyTo = {
             projection: 'globe',
             zoom: 1
         },
-        title: 'combine various options',
-        codeBlock: `todo`,
-        content: 'todo // combines mapOpts and geocoderOpts'
+        title: 'Set a flyTo object, change projection, enable geolocation, etc.',
+        codeBlock: `<MapContainer mapOpts={{style: styles.courtEarthy, projection: 'globe', zoom: 1}}, addGeocoder=true, geocoderOpts={enableGeolocation: true, placeholder: 'changed the placeholder text', flyTo: {curve: 1.75, pitch: 70, bearing: -60, padding: 200}, zoom: 14.85}>`,
     }
   }
 
