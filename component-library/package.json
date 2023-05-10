@@ -1,5 +1,6 @@
 {
   "name": "component-library",
+  "homepage": "http://coxco96.github.io/mapbox-svelte-components",
   "version": "0.0.1",
   "scripts": {
     "dev": "vite dev",
@@ -10,8 +11,9 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=c88190329b0d"
+    "build-storybook": "build-storybook -s public",
+    "deploy-storybook": "storybook-to-ghpages",
+    "chromatic": "npx chromatic --project-token=cd84c2e"
   },
   "exports": {
     ".": {
@@ -33,6 +35,7 @@
     "@storybook/addon-interactions": "^7.0.9",
     "@storybook/addon-links": "^7.0.9",
     "@storybook/blocks": "^7.0.9",
+    "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/svelte": "^7.0.9",
     "@storybook/sveltekit": "^7.0.9",
     "@storybook/testing-library": "^0.0.14-next.2",
@@ -41,6 +44,7 @@
     "@sveltejs/kit": "^1.5.0",
     "@sveltejs/package": "^2.0.0",
     "chromatic": "^6.17.4",
+    "gh-pages": "^5.0.0",
     "publint": "^0.1.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
