@@ -116,73 +116,41 @@ import { Meta } from '@storybook/blocks';
 
 *Heads up! This project is still in production. It isn't published or available for use just yet.*
 
-### a quick personal note
-This Storybook was born as a demonstration for my master's defense for the M.S. in Digital Mapping from [New Maps Plus](https://newmapsplus.as.uky.edu/programs) at the [University of Kentucky](https://www.uky.edu/). You can view more of my projects at [my portfolio website](https://coxco96.github.io/), or have a look around [my Github profile](https://github.com/coxco96).
-
-I decided last winter that I wanted to learn how to use a framework called Svelte. In the spirit of learning by doing, I decided I would code my final project using Sveltekit as the framework for the site itself--that is, for layout templates and page navigation/routing. 
-
-Svelte felt like an impossible puzzle at first, but as I began to think in its language, my project grew into something much different than what I had initially intended. Rather than a narrative story in itself, I've created and and am optimizing building blocks for my future ideas.
-
-Now that I've spent time with it, Svelte feels more like a game of sudoku--a bunch of little pieces influencing each other from all directions, offering the cozy sort of brain tease you want to have with coffee. This library, functional though nascent, is the foundation of a project I plan to continue developing in the coming months. 
-
-This Storybook does not present full documentation. Eventually, that will live in the [Github repo](https://github.com/coxco96/mapbox-svelte-components). For now, the Storybook is a basic explanation of what it is and what it does, leaving out a lot of the technical intricacies happening under the hood.
-
-It was a bit out of left field that I ever started the New Maps Plus program, and an even wider stretch to be finishing with a degree, because when I began the certificate program in April 2021, I had a bachelor's in creative writing, had never written a line of code, and knew next to nothing about maps. I'm still not sure what enticed me about the program enough to decide to pay the tuition out-of-pocket with a dwindling temp job (at the time), but I am better because I did, and I continue to become a better version of myself as I learn to see see in patterns, think in logic, recognize harm veiled by data, and advocate for myself and my world through maps. Thanks, NMP.   
-
-\- Court
+### so... what is this?
+Good question. But first, we need to talk about Svelte.
 
 
+**[Svelte]()**, at its core, is a compiler. Most everything on the internet that *does something* (sends or receives data, updates when you click a button, calculates the answer to your math homework, etc.) is done by JavaScript, because internet browsers read JavaScript. Svelte is built over top of JavaScript, meaning it takes code that is written a bit differently than it would be written in JavaScript and *compiles* it, turning it into JavaScript for the browser. As it is built over top of another programming language, it is often called a *framework.* There are other frameworks out there that do similar things, but Svelte, a relatively new framework, is *really fast* compared to others, making it ideal for data-driven graphics-demanding interactive contentlike, such as one would might encounter when viewing, say, a digital map. 
 
-### so what is this?
+    Svelte is also highly *reactive* by design, making it (relatively) simple for developers to write reactive content, creating smooth interactivity. In Svelte, you write components--that is, reusable bits of code. These components accept "props," so they are not the same every time. 
+    
+    Imagine the Youtube homepage. I don't think Youtube is built with Svelte, but let's just pretend for the sake of succint explanation. Youtube's homepage shows dozens of the same squares, all exactly the same except holding different videos. In Svelte, you'd write one component, perhaps called **`<VideoContainer/>`**. Somewhere, there will be one code file called 'VideoContainer.svelte', and as long as you know where to find that, you can create a video containers by simply writing **`<VideoContainer/>`**.
 
-todo!
+    But how does the video container know what video it should be holding? It receives a **prop**, probably with some sort of ID number connected to a video on the server. Pretend with me, again, that Youtube only has three videos, and the unique ID numbers are 1, 2, and 3. (So not so unique, really.) I'll write the following, and we'll now see three video containers with three different videos:
+    ```
+    <VideoContainer videoID=1>
+    <VideoContainer videoID=2>
+    <VideoContainer videoID=3>
+    ```
 
-- mapbox
-- sveltekit
+    And when you hover over a Youtube video, the preview starts playing, yes? Then in VideoContainer.svelte, there should be some sort of reactive statement that will go into effect the moment you hover over that video. Even though we only coded our VideoContainer once, we have three separate instances of it, which will each react independent of each other. Svelte can handle the animation and transition itself, too, unlike many other popular frameworks. 
+    
+    The reason Svelte is so much faster than other comparable frameworks is tricky to explain without getting deep into the technical weeds of web dev. Essentially, though, Svelte *pre-compiles* highly optimized JavaScript that then takes over the show, whereas other frameworks don't compile until it's showtime. (Svelte compiles the code the moment the developer says "build it" whereas other frameworks wait to compile until the user is trying to load the web page.) This allows Svelte to offer true on-the-spot reactivity, sending far less code to the browser + requiring you to write less code than other frameworks.
 
-### Why did I make this?
-master's project
+    Svelte's creator, **[Rich Harris](https://svelte.dev/blog/write-less-code)**, said it best: "All code is buggy. It stands to reason, therefore, that the more code you have to write the buggier your apps will be."
 
-### Who is it for?
+### cool! so what is this?
 
-This library is for **developers**, primarily.
+Not so fast. Now we need to talk about Mapbox. Briefly.
 
-### Next Steps: priority
-- optimize for accessibility:
-  - screen reader support:
-    - write scripts to analyze map options and data to dynamically read map summaries to screen reader users 
-    - create reactive declarations to re-run these scripts to announce changes in map 
-    - overall goal is to create non-visual interactive map and data experiences as a native feature to the MapContainer
-  - reduce motion preferences (rotating globe needs option to stop rotation)
-- send data to `<Geocoder/>` (currently only sends to `<SourceLayer/>`)
-- add support for all Mapbox-supported data types (currently only accepts geojson type)
-- test and optimize for:
-  - multiple data sources on one map
-  - multiple map instances on one page
-- add map height as a MapContainer prop (currently hard coded inside MapContainer component to 500px)
-- figure out if it optimizes speed to omit undefined values before passing options
-- publish package to npm
-- write more extensive documentation in Github README
+**[Mapbox](https://www.mapbox.com/)** is the company; **[Mapbox GL](https://docs.mapbox.com/help/glossary/mapbox-gl/)** is the library.
+
+Mapbox GL is used to create client-side maps (meaning maps that render in your browser when you load them).
 
 
-### Future steps
 
-- infer fill type if not specified in `layerOpts` (currently will throw error if not specified)
-- set default paint values by type (check if they already have defaults that render as visible)
-- build Markers component
-- add more Mapbox plugins
-- add scrollymap prop option (scrollytelling template with map)
-  - for accessibility, must include on/off motion option
-- ship with pre-written actions to use as mapScripts and/or geoprocesses (or potentially create a separate component to invoke prewritten actions)
-- add maplibre support (like mapbox but open-source)
-- add style component in which the style object (usually sent as a url) in mapOpt is customizable within something like `<MapContainer styleObj={}/>`
-- add something like layerScript to run scripts to pass to values of layerOpts (like to generate filters and expressions)
 
-#### A brain dump of actions to ship with
-    - mapScript: style builder (UI to change map styles on the fly)
-    - mapScript: set flyTo object (accept args to create this more easily than it is to do directly in geoprocess layerOpts)
-    - set some sort of catch error for sourceOpts or layerOpts are not valid (there are no pre-defined values for these, unlike the rest)
-    - geoprocess: use turf for "distance to" geoprocess
-    - geoprocess: use turf for "nearest point" geoprocess
-    - geoprocess: highlight (change opacity or color) of polygon (from data) that searched feature lands in
-    - geoprocess: draw line from searchedPoint to other specified point 
+
+
+
+

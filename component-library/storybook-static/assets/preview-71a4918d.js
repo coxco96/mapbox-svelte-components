@@ -1,0 +1,2 @@
+const o={parameters:{options:{storySort:{order:["Start Here",["introduction","what is this?","docs & tutorials"],"<MapContainer>","<Map>",["mapOpts","mapScript"],"<Geocoder>",["addGeocoder","geocoderOpts","geoprocess"],"<SourceLayer>",["data","sourceOpts","layerOpts"],"utils",["actions","options","mapbox"]]}},actions:{argTypesRegex:"^on[A-Z].*"},controls:{matchers:{color:/(background|color)$/i,date:/Date$/}}}};export{o as default};
+//# sourceMappingURL=preview-71a4918d.js.map
