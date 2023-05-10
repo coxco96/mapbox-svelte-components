@@ -6,7 +6,8 @@
 <div>
   <h1 style='margin-left: 65px; margin-bottom: 20px;'>{title}</h1>
   <div>
-    <slot />
+    <!-- map goes here -->
+    <slot /> 
   </div>
   <div style='margin-left: 65px; margin-top: 25px;'>
     <code>{codeBlock}</code>
@@ -32,7 +33,6 @@
     href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
     rel="stylesheet"
   />
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script> -->
 </svelte:head>
 
 <style>
@@ -46,22 +46,3 @@
   }
 </style>
 
-<!-- <style>
-		h1 {
-			font-family: 'Volkorn', serif;
-			line-height: 1.3;
-			letter-spacing: .25rem;
-			font-weight: 700;
-            font-size: calc(2.5rem + .25vw)
-		}
-
-        .page-container {
-            margin: 2px;
-        }
-
-        code {
-            white-space: pre-wrap;
-        }
-
-
-</style> -->
