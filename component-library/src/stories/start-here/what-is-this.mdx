@@ -116,7 +116,7 @@ import { Meta } from '@storybook/blocks';
 
 *Heads up! This project is still in production. It isn't published or available for use just yet.*
 
-### so... what is this?
+### what is this?
 Good question. But first, we need to talk about Svelte.
 
 
@@ -139,7 +139,7 @@ Good question. But first, we need to talk about Svelte.
 
     Svelte's creator, **[Rich Harris](https://svelte.dev/blog/write-less-code)**, said it best: "All code is buggy. It stands to reason, therefore, that the more code you have to write the buggier your apps will be."
 
-### cool! so what is this?
+### great! so what is this?
 
 Not so fast. Now we need to talk about Mapbox. Briefly.
 
@@ -147,6 +147,29 @@ Not so fast. Now we need to talk about Mapbox. Briefly.
 
 Mapbox GL is used to create client-side maps (meaning maps that render in your browser when you load them).
 
+Mapbox GL is a library written in JavaScript that helps us develop interactive web maps. It's nice on its own, but each map requires a good bulk of code and has a bit of a learning curve, especially if you want to do anything you can't find in the code of the [example maps](https://docs.mapbox.com/mapbox-gl-js/example/).
+
+### svelte + mapbox gl = ?
+
+Fast maps. Less code. Full customization. Endless possibilities for user reactivity.
+
+My library, unlike the handful of other Svelte + Mapbox GL libraries I have seen, only asks the developer to deal with one single component:
+```
+<MapContainer/>
+```
+
+The **`<MapContainer/>`** can create a map, add a geocoder, run functions on your geocoder results, style your map, change the zoom level, bearing, create animations, make the globe spin, accept geojson data, style that data to the map, etc. etc. etc.
+
+
+There are "child components" running "under the hood," but you don't even have to be aware of their existence (unless you're trying to fork the repo and help me develop it, of course).
+
+**`<MapContainer/>`** on its own will render a default map (as long as you've set your Mapbox access token in the 'utils' folder), but the magic happens in the props, where the user can declare exactly what they want without dealing with any boilerplatishness.
+
+One import aspect of mapping is the timing. First, you have to initialize the map. You can't add data to a map that doesn't exist. You can't reference the data until it's there. If one action causes the map to re-render, and a re-render prompts it to do that one thing, you get stuck in an infinite loop which will use up every bit of your computer's memory, forcing you to power it off, losing an hour's worth of work you forgot to commit.
+
+With the **`<MapContainer/>`**, you can focus on what you need from the map in terms of design and interface. 
+
+Hop over to the **MapContainer: how it works** section to learn more about how this works. (And know that more are in development.)
 
 
 
