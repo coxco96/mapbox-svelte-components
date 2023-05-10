@@ -1,89 +1,78 @@
 import MapOptsPage from './storybook-components/MapOptsPage.svelte'
+import { styles } from '$lib/utils/options/map-style-options.js'
 export default {
   title: '<Map>/mapOpts',
   component: MapOptsPage
 };
 
 
-// export const DefaultMapContainer = {
-//   args: {
-//     title: 'Default Map Container',
-//     codeBlock: `<MapContainer/>`,
-//     content: 'come back to this'
-//   }
-// }
+export const DefaultMapContainer = {
+  args: {
+    title: 'Default Map Container',
+    codeBlock: `<MapContainer/>`
+  }
+}
 
 export const ChangeMapStyle = {
   args: {
     mapOpts: {
-      'style': 'mapbox://styles/mapbox/light-v10',
+      'style': styles.satelliteStreets,
     },
     title: 'Change Map Style',
     codeBlock: 
-`<MapContainer mapOpts={{
-    style: 'mapbox://styles/mapbox/light-v10'
-}}/>`,
-    content: 'come back to this'
+`<MapContainer mapOpts={{style: styles.satelliteStreets}}/>`
   }
 }
 
-export const InteractionOff = {
+export const TurnOffInteractivity = {
   args: {
     mapOpts: {
       'interactive': false,
-      'style': 'mapbox://styles/coxco96/clfx9b01p004i01l8qojjofqh',
-      'zoom': -2,
-      center: [84,-37]
+      'style': styles.courtBluePink
     },
-    title: 'Interactive Off',
+    title: 'Turn Off Interactivity',
     codeBlock: 
 `<MapContainer mapOpts={{
     interactive: false, 
-    style: 'mapbox://styles/coxco96/clfx9b01p004i01l8qojjofqh'
+    style: styles.courtBluePink
 }}/>`,
-content: 'come back to content!'
   }
 }
 
 export const ChangeProjection = {
   args: {
     mapOpts: {
-      'projection': 'globe',
-      'zoom': 0,
-      'style': 'mapbox://styles/coxco96/clam405uw000215qwfzg4hejq'
+      'projection': 'lambertConformalConic',
+      'style': styles.courtEarthy
     },
     title: 'Change Projection',
     codeBlock: `
 <MapContainer mapOpts={{
-projection: 'globe',
-zoom: 0,
-style: 'mapbox://styles/coxco96/clam405uw000215qwfzg4hejq'
-}}/>`,
-  content: 'come back to text'
+projection: 'lambertConformalConic',
+style: styles.courtEarthy
+}}/>`
   }
 }
 
-export const GeoAndStyle = {
+export const ChangeSeveralOptions = {
   args: {
     mapOpts: {
       'projection': 'globe',
-      'zoom': 1.5,
-      'center': [-87, 37],
-      'bearing': 5,
-      'style': 'mapbox://styles/coxco96/clam3w1aq005d15qmwtbma0l2'
+      'zoom': 1.4,
+      'bearing': 90,
+      'pitch': -50,
+      'style': styles.satellite,
+      'customAttribution': 'CUSTOM ATTRIBUTION TEXT HERE'
     },
-    addGeocoder: true,
-    title: 'Add Geocoder',
+    title: 'Change Several mapOpts',
     codeBlock: `
 <MapContainer 
 mapOpts={{
     projection: 'globe',
-    zoom: 1.5,
-     center: [-87, 37],
-    bearing: 5,
-    style: 'mapbox://styles/coxco96/clam3w1aq005d15qmwtbma0l2'
-    }}, 
-addGeocoder: {true}/>`,
-content: 'content here'
+    zoom: 1.4,
+    bearing: 90,
+    pitch: -50,
+    style: styles.satellite,
+    customAttribution: 'CUSTOM ATTRIBUTION TEXT HERE'/>`,
   }
 }
