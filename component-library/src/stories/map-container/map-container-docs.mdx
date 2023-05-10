@@ -89,17 +89,17 @@ import { Meta } from '@storybook/blocks';
       line-height: 12px;
       font-weight: 700;
       background: #E7FDD8;
-      color: #66BF3C;
-      padding: 4px 12px;
-      margin-right: 10px;
+      color: #2e8705;
+      padding: 4px 10px;
+      margin-right: 5px;
       vertical-align: top;
     }
 
     .tip-wrapper {
       font-size: 13px;
       line-height: 20px;
-      margin-top: 40px;
-      margin-bottom: 40px;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
     .tip-wrapper code {
@@ -109,8 +109,68 @@ import { Meta } from '@storybook/blocks';
   `}
 </style>
 
-# Building the MapContainer
+# how it works
+---
 
-Users only need to compose one component to render the entire map including data, geocoder, and any custom scripts.
+<div className="tip-wrapper">
+  <span className="tip">Note</span>
+  **This page assumes you've read the 'what is this?' section.**
+</div>
+
+---
+
+So what are you looking at here? What's going on in the sidebar? Here's what you need to know.
+
+**MapContainer** has three child components: 
+  - **Map**
+  - **Geocoder**
+  - **SourceLayer**
 
 
+**MapContainer** accepts props for the whole family and passes them down accordingly, which makes the map things happen.
+
+This Storybook is laid out by **child component > prop > examples**, so you can better see what is happening and how.
+
+For example, find the **Geocoder** heading in the sidebar. (But don't click it yet. Stay with me.)
+
+You should see:
+
+- **Geocoder**
+  - **addGeocoder**
+
+  - **geocoderOpts**
+
+  - **geoprocess**
+
+And, look now, but if you click on those subheadings, it will take you to some examples.
+
+**Geocoder** is the child component of **MapContainer**. It's nested inside of it, like this:
+
+```
+<MapContainer>
+  <Geocoder/>
+<MapContainer/>
+```
+**addGeocoder, geocoderOpts, and geoprocess** are the **props** that **Geocoder** eventually receives, but we just send them in through **MapContainer**, because remember, you don't even *really* need to know about the child (**Geocoder**).
+
+So let's say I want to add a geocoder to my map. Here's what that looks like:
+
+```
+<MapContainer geocoder={true}/>
+```
+
+If you don't want a geocoder, you don't need to do anything, because the default value is false.
+
+Now, **Map** receives **mapOpts** as a prop, which does a lot to style your map. Let's say you want a geocoder *and* you want to set the zoom level to 17 (very close up).
+
+```
+<MapContainer geocoder={true} mapOpts={{zoom: 17}}/>
+```
+
+And boom, geocoder added, map zoomed in right on a house.
+
+More thorough documentation is to come on all prop options in the **[Github repo](https://github.com/coxco96/mapbox-svelte-components)**, but that's the gist of it.
+
+I've kept the maps for this demonstration relatively simple to clearly show what is happening here, but know that the **mapScript** prop offers full customization to the Map object by allowing you to pass in a custom function. Similarly, the **geoprocess** prop allows you to run a custom function each time the geocoder is fired. (So for example, you might write a **geoprocess** function that takes the geocoder result coordinate and animates a line from that point to the nearest ice cream shop.)
+
+I recommend going through this from top to bottom, starting with **Map: mapOpts** and working your way down. There's a bit more information about some of what's happening and the customization options in **Utils** at the bottom.
